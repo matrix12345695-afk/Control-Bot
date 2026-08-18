@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: inventory-render-control
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
+      - key: BOT_TOKEN
+        sync: false
+      - key: RENDER_API_KEY
+        sync: false
+      - key: TARGET_SERVICE_ID
+        sync: false
+      - key: BASE_WEB_URL
+        sync: false
+      - key: TARGET_SERVICE_NAME
+        value: Inventory Bot
+      - key: ADMIN_IDS
+        sync: false
